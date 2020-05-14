@@ -1,6 +1,6 @@
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import {fadeIn, fromBottom} from 'react-navigation-transitions';
+import {fadeIn, fromRight, fromBottom} from 'react-navigation-transitions';
 
 import P17 from './extra/17';
 import P18 from './extra/18';
@@ -10,23 +10,14 @@ const handleCustomTransition = ({scenes}) => {
   const nextScene = scenes[scenes.length - 1];
 
   // Custom transitions go there
-  if (
-    prevScene &&
-    prevScene.route.routeName === 'Login' &&
-    nextScene.route.routeName === 'Forgetpass'
-  ) {
-    return fromBottom(500);
-  }
-  // Custom transitions go there
-  if (
-    prevScene &&
-    prevScene.route.routeName === 'Signup' &&
-    nextScene.route.routeName === 'Otp'
-  ) {
+  if (prevScene && prevScene.route.routeName === 'P18') {
     return fromBottom(500);
   }
 
-  return fadeIn(500);
+  // Custom transitions go there
+  if (prevScene && prevScene.route.routeName === 'P17') {
+    return fromRight(500);
+  }
 };
 
 const AppNavigator = createStackNavigator(

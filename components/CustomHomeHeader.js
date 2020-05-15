@@ -28,13 +28,14 @@ export default function Header(props) {
         style={{top: -5}}
       />
       <View style={styles.sliderContainerStyle}>
-        <View style={[styles.topcontent, {alignItems: 'center'}]}>
-          <View style={{flex: 1}}>
+        <View style={[styles.topcontent, {}]}>
+          <View style={{flex: 1, justifyContent: 'center'}}>
             <TouchableOpacity onPress={() => props.goBack()}>
               <SvgXml width="20" height="15" xml={back} />
             </TouchableOpacity>
           </View>
-          <View style={{flex: 3, alignItems: 'center'}}>
+          <View
+            style={{flex: 3, alignItems: 'center', justifyContent: 'center'}}>
             <Text style={styles.accttext}>
               {' '}
               {data.title == 'PROSPA CURRENT ACCOUNT'
@@ -48,7 +49,6 @@ export default function Header(props) {
             <Text style={styles.optionText}>Options</Text>
           </View>
         </View>
-
         <Slider data={allpage} currentPosition={e => handlePosition(e)} />
       </View>
     </View>
@@ -60,14 +60,15 @@ const styles = EStyleSheet.create({
   sliderContainerStyle: {
     backgroundColor: 'transparent',
     height: '200rem',
-    alignSelf: 'center',
     position: 'absolute',
     top: '25rem',
-    width: '327rem',
+    width: '100%',
   },
   topcontent: {
     justifyContent: 'space-between',
     flexDirection: 'row',
+    width: '100%',
+    paddingHorizontal: '25rem',
   },
   headerTextMain: {
     color: 'white',

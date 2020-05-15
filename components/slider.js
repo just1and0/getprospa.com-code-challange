@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  ScrollView,
-  View,
-  Image,
-  ImageBackground,
-  TouchableOpacity,
-  Animated,
-  Text,
-} from 'react-native';
+import {ScrollView, View, Animated, Text} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {deviceWidth} from './CustomHomeHeader';
 // import console = require('console');
@@ -33,6 +25,7 @@ export default class Slider extends React.Component {
 
   render() {
     const {data} = this.props;
+
     return (
       <View style={styles.container}>
         <ScrollView
@@ -55,7 +48,7 @@ export default class Slider extends React.Component {
                 styles.priceText,
                 this.state.position == 0 && styles.activeText,
               ]}>
-              {data[0].cost}
+              ₦{data[0].cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </Text>
           </View>
           <View style={styles.textContainer}>
@@ -64,7 +57,7 @@ export default class Slider extends React.Component {
                 styles.priceText,
                 this.state.position == 1 && styles.activeText,
               ]}>
-              {data[1].cost}
+              ₦{data[1].cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </Text>
           </View>
           <View style={styles.textContainer}>
@@ -73,7 +66,7 @@ export default class Slider extends React.Component {
                 styles.priceText,
                 this.state.position == 2 && styles.activeText,
               ]}>
-              {data[2].cost}
+              ₦{data[2].cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </Text>
           </View>
         </ScrollView>
@@ -88,7 +81,8 @@ export default class Slider extends React.Component {
                   styles.dot,
                   {
                     backgroundColor:
-                      this.state.position === i ? 'purple' : '#ddd',
+                      this.state.position === i ? '#FA4A84' : '#FA4A84',
+                    opacity: this.state.position === i ? 1 : 0.4,
                   },
                 ]}
               />
@@ -101,7 +95,8 @@ export default class Slider extends React.Component {
 }
 
 const styles = EStyleSheet.create({
-  activeText: {color: '#fff', fontSize: 40, fontWeight: 'bold'},
+  container: {},
+  activeText: {color: '#fff', fontSize: '40rem', fontWeight: '600'},
   dot: {
     height: '10rem',
     width: '10rem',

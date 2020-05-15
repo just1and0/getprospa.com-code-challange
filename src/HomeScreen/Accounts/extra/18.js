@@ -20,7 +20,7 @@ import cardicon from './../../../../assets/svg/card-icon.svg';
 import planeround from './../../../../assets/svg/plane-round.svg';
 import mobileround from './../../../../assets/svg/mobile-round.svg';
 import invoiceround from './../../../../assets/svg/invoice-round.svg';
-
+import Spending from './../../../../components/spending';
 export default function P18({navigation}) {
   const data = navigation.getParam('data');
   const allpage = navigation.getParam('allpage');
@@ -159,6 +159,7 @@ export default function P18({navigation}) {
                     <SvgXml width="15" height="10" xml={right} />
                   </View>
                 </View>
+                <Spending moneyIn={5250.01} moneyOut={2250.96} />
               </View>
             </View>
           </View>
